@@ -14,7 +14,7 @@ public class Customer implements IUser {
     private int userId;
     private String userName;
     private String userAccount;
-    private int userPassword;
+    private String userPassword;
     private int userWallet;
     private String userAddress;
     private String userIdentity;
@@ -64,11 +64,11 @@ public class Customer implements IUser {
         this.userAccount = userAccount;
     }
 
-    public int getUserPassword() {
+    public String getUserPassword() {
         return userPassword;
     }
 
-    public void setUserPassword(int userPassword) {
+    public void setUserPassword(String userPassword) {
         this.userPassword = userPassword;
     }
 

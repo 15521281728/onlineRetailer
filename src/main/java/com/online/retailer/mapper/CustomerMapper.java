@@ -9,10 +9,10 @@ public interface CustomerMapper {
     @Select("select * from user where user_id = #{userId}")
     public Customer selectUserById(int userId);
 
-    @Select("select * from user where user_id = #{name}")
+    @Select("select * from user where user_name = #{name}")
     public Customer selectUserByName(String name);
 
-    @Select("select * from user where user_id = #{account}")
+    @Select("select * from user where user_account = #{account}")
     public Customer selectUserByAccount(String account);
     //找用户名
     @Select("select user_name from user where user_id = #{userId}")

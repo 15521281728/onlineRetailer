@@ -3,8 +3,10 @@ package com.online.retailer;
 import com.online.retailer.mapper.CustomerMapper;
 import com.online.retailer.model.Customer;
 import org.junit.jupiter.api.Test;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import java.lang.reflect.Array;
 import java.sql.Date;
@@ -18,15 +20,21 @@ import java.util.Set;
 class RetailerApplicationTests {
     @Autowired
     CustomerMapper customerMapper;
+
+    @Autowired
+    RabbitTemplate rabbitTemplate;
     @Test
     void testCustomerMapper() {
+        BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
+        String pwd = "123456";
+        pwd = bCryptPasswordEncoder.encode(pwd);
         java.util.Date now = new java.util.Date();
         Date date = new Date(now.getTime());
         Customer customer = new Customer();
 //        customer.setUserId(1);
         customer.setUserAccount("155212817289");
         customer.setUserName("何顺龙2");
-        customer.setUserPassword(1234567);
+        customer.setUserPassword("1234567");
         customer.setUserAddress("增城");
         customer.setUserBirthday(date);
         customer.setUserIdentity("superVip");
@@ -42,5 +50,13 @@ class RetailerApplicationTests {
     @Test
     void AAA(){
         System.out.println("aa");
+    }
+
+    @Test
+    void amqpAPI(){
+        Customer customer = new Customer();
+        customer.setUserId(1);
+        customer.setUserName("aaa");
+        rabbitTemplate.convertAndSend("fanout_exchange","",customer);
     }
 }
