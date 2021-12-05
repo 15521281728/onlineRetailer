@@ -1,0 +1,1152 @@
+Index: src/main/java/com/online/retailer/mapper/IdentityMapper.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/main/java/com/online/retailer/mapper/IdentityMapper.java	(date 1638717168406)
++++ src/main/java/com/online/retailer/mapper/IdentityMapper.java	(date 1638717168406)
+@@ -0,0 +1,14 @@
++package com.online.retailer.mapper;
++
++import com.online.retailer.model.Identity;
++import org.apache.ibatis.annotations.Mapper;
++import org.apache.ibatis.annotations.Select;
++
++import java.util.List;
++
++@Mapper
++public interface IdentityMapper {
++
++    @Select("select user_identity from user where user_account =#{account}")
++    public List<Identity> findIdentityByAccount(String account);
++}
+Index: src/main/resources/templates/schoolmasterWNB/login.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/main/resources/templates/schoolmasterWNB/login.html	(revision 225b28ad0c29db5ddb1912263b3b604798a30dd8)
++++ src/main/resources/templates/schoolmasterWNB/login.html	(date 1638696122869)
+@@ -1,86 +1,87 @@
+ <!DOCTYPE html>
+-<html lang="en">
+-	<head>
+-		<meta charset="UTF-8">
+-		<title>京东-欢迎登录</title>
+-		<link rel="stylesheet" href="/css/cssreset.css">
+-		<link rel="stylecut icon" href="/favicon.ico">
+-		<link rel="stylesheet" href="/css/login.css">
+-		<script src="/js/jquery-3.0.0.min.js"></script>
+-		<script src="/js/login.js"></script>
+-	</head>
+-	<body>
+-		<form action="#">
+-		<header>
+-			<h1><img src="/images/logo-201305-b.png" alt=""></h1>
+-			<h2><img src="/images/l-icon.png" alt=""></h2>
+-			<a href="#"><span></span>登录页面，调查问卷</a>
+-		</header>
+-		<div class="tip">
+-			<p><span></span>依据《网络安全法》，为保障您的账户安全和正常使用，请尽快完成手机号验证！新版<a href="#">《京东隐私政策》</a>已上线，将更有利于保护您的个人隐私。</p>
+-		</div>		
+-		<main>
+-			<div class="con">
+-				<div class="login-all">
+-					<p>
+-						<span></span>
+-						京东不会以任何理由要求您转账汇款，谨防诈骗。						
+-					</p>
+-					<ul>
+-						<li class="redd">扫码登录</li>
+-						<li>账户登录</li>
+-					</ul>
++<html lang="en" xmlns:th="http://www.thymeleaf.org">
++<head>
++    <meta charset="UTF-8">
++    <title>京东-欢迎登录</title>
++    <link rel="stylesheet" href="/css/cssreset.css">
++    <link rel="stylecut icon" href="/favicon.ico">
++    <link rel="stylesheet" href="/css/login.css">
++    <script src="/js/jquery-3.0.0.min.js"></script>
++    <script src="/js/login.js"></script>
++</head>
++<body>
++<form th:action="@{/login}" method="post">
++    <header>
++        <h1><img src="/images/logo-201305-b.png" alt=""></h1>
++        <h2><img src="/images/l-icon.png" alt=""></h2>
++        <a href="#"><span></span>登录页面，调查问卷</a>
++    </header>
++    <div class="tip">
++        <p><span></span>依据《网络安全法》，为保障您的账户安全和正常使用，请尽快完成手机号验证！新版<a href="#">《京东隐私政策》</a>已上线，将更有利于保护您的个人隐私。</p>
++    </div>
++        <main>
++            <div class="con">
++                <div class="login-all">
++                    <p>
++                        <span></span>
++                        京东不会以任何理由要求您转账汇款，谨防诈骗。
++                    </p>
++                    <ul>
++                        <li class="redd">扫码登录</li>
++                        <li>账户登录</li>
++                    </ul>
+ 
+-					<div class="mid">
+-						<div class="mid-top">
+-							<div class="mid1">	
+-								<img src="/images/show.png" alt="">
+-							</div>
+-							<div class="mid2">
+-							</div>
+-						</div>						
+-						<p>打开<a href="#">手机京东</a>扫描二维码</p>
+-						<ul>
+-							<li><span>免输入</span></li>
+-							<li><span>更快</span></li>
+-							<li><span>更安全</span></li>
+-						</ul>
+-					</div>	
+-					<div class="midd">
+-						
+-						<p class="tipp tip1">
+-							<span></span>请输入账户名和密码
+-						</p>
+-						<p class="tipp tip2">
+-							<span></span>请输入账户名
+-						</p>
+-						<p class="tipp tip3">
+-							<span></span>请输入密码
+-						</p>
+-						<span></span>
+-						<input type="text" placeholder="邮箱/用户名/登录手机" class="inp1">
+-						<span></span>
+-						<input type="password" placeholder="密码" class="inp2">
+-						<p class="forget"><a href="#">忘记密码</a></p>
+-						<button>登录</button>
+-					</div>
+-
+-					<div class="bot">
+-						<ul>
+-							<li><span></span><a href="#">QQ</a></li>
+-							<li><span></span><a href="#">微信</a></li>
+-						</ul>
+-						<a href="sign-up.html"><span></span>立即注册</a>
+-					</div>
+-				</div>
+-			</div>			
+-		</main>
+-		<footer>
+-			<p><a href="#">关于我们</a><a href="#">联系我们</a><a href="#">人才招聘</a><a href="#">商家入驻</a><a href="#">广告服务</a><a href="#">手机京东</a><a href="#">友情链接</a><a href="#">销售联盟</a><a href="#">京东社区</a><a href="#">京东公益</a><a href="#">English Site</a></p>
+-			<p>Copyright © 2004-2020  京东JD.com 版权所有</p>
++                    <div class="mid">
++                        <div class="mid-top">
++                            <div class="mid1">
++                                <img src="/images/show.png" alt="">
++                            </div>
++                            <div class="mid2">
++                            </div>
++                        </div>
++                        <p>打开<a href="#">手机京东</a>扫描二维码</p>
++                        <ul>
++                            <li><span>免输入</span></li>
++                            <li><span>更快</span></li>
++                            <li><span>更安全</span></li>
++                        </ul>
++                    </div>
++                    <div class="midd">
++
++                        <p class="tipp tip1">
++                            <span></span>请输入账户名和密码
++                        </p>
++                        <p class="tipp tip2">
++                            <span></span>请输入账户名
++                        </p>
++                        <p class="tipp tip3">
++                            <span></span>请输入密码
++                        </p>
++                        <span></span>
++                        <input type="text" name="userAccount" placeholder="邮箱/用户名/登录手机" class="inp1">
++                        <span></span>
++                        <input type="password" name="password" placeholder="密码" class="inp2">
++                        <p class="forget"><a href="#">忘记密码</a></p>
++                        <button type="submit">登录</button>
++                    </div>
++                    <div class="bot">
++                        <ul>
++                            <li><span></span><a href="#">QQ</a></li>
++                            <li><span></span><a href="#">微信</a></li>
++                        </ul>
++                        <a href="sign-up.html"><span></span>立即注册</a>
++                    </div>
++                </div>
++            </div>
++        </main>
++    <footer>
++        <p><a href="#">关于我们</a><a href="#">联系我们</a><a href="#">人才招聘</a><a href="#">商家入驻</a><a href="#">广告服务</a><a
++                href="#">手机京东</a><a href="#">友情链接</a><a href="#">销售联盟</a><a href="#">京东社区</a><a href="#">京东公益</a><a
++                href="#">English Site</a></p>
++        <p>Copyright © 2004-2020 京东JD.com 版权所有</p>
+ 
+-		</footer>
+-		</form>
+-		<script src="/js/login.js"></script>
+-	</body>
++    </footer>
++</form>
++<script src="/js/login.js"></script>
++</body>
+ </html>
+\ No newline at end of file
+Index: src/main/resources/templates/schoolmasterWNB/myorder.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/main/resources/templates/schoolmasterWNB/myorder.html	(revision 225b28ad0c29db5ddb1912263b3b604798a30dd8)
++++ src/main/resources/templates/schoolmasterWNB/myorder.html	(date 1638692972321)
+@@ -3,14 +3,14 @@
+ 	<head>
+ 		<meta charset="UTF-8">
+ 		<title>我的京东--我的订单</title>
+-		<link rel="stylesheet" href="../../static/css/cssreset.css">
+-		<link rel="stylecut icon" href="../../static/favicon.ico">
+-		<link rel="stylesheet" href="../../static/css/myorder.css">
+-		<script src="../../static/js/jquery-3.0.0.min.js"></script>
++		<link rel="stylesheet" href="/css/cssreset.css">
++		<link rel="stylecut icon" href="/favicon.ico">
++		<link rel="stylesheet" href="/css/myorder.css">
++		<script src="/js/jquery-3.0.0.min.js"></script>
+ 	</head>
+ 	<body>
+ 		<div class="fix">
+-			<img src="../../static/images/joygif.gif" alt="">
++			<img src="/images/joygif.gif" alt="">
+ 			<ul>
+ 				<li class="fix1">
+ 					<span class="fix_1"></span>
+@@ -34,7 +34,7 @@
+ 				<li>
+ 					<div></div>
+ 					<span class="house"></span>
+-					<a href="../../static/index.html">京东首页</a>
++					<a href="/index.html">京东首页</a>
+ 				</li>
+ 				<li class="db">					
+ 					<div>					
+@@ -92,7 +92,7 @@
+ 				<li class="user">					
+ 					<div>
+ 						<div class="out">
+-							<img src="../../static/images/no-img_mid_.jpg" alt="">
++							<img src="/images/no-img_mid_.jpg" alt="">
+ 							<span class="vplus"></span>
+ 							<span>开通PLUS 平均省1012元/年></span>
+ 						</div>
+@@ -302,7 +302,7 @@
+ 		<nav>
+ 			<div class="con">
+ 				<div class="con-left">
+-					<h1><img src="../../static/images/logo_2017.png" alt=""></h1>
++					<h1><img src="/images/logo_2017.png" alt=""></h1>
+ 					<div class="h1">
+ 						<p class="my">我的京东</p>
+ 						<p class="return">返回京东首页</p>	
+@@ -415,7 +415,7 @@
+ 					<dt>设置</dt>
+ 						<dd><a href="#">个人信息</a></dd>
+ 						<dd><a href="#">收货地址</a></dd>
+-					<img src="../../static/images/59126ae3N1b306e2c.jpg" alt="">
++					<img src="/images/59126ae3N1b306e2c.jpg" alt="">
+ 				</dl> 
+ 		 	</aside>
+ 		 	<div class="myorder">
+@@ -477,7 +477,7 @@
+ 					 	<div class="dog">	
+ 					 		<a href="#"><button class="check">查看全部订单</button></a>	
+ 					 		<p> 		
+-						 		<img src="../../static/images/empty-icon05.png" alt="">
++						 		<img src="/images/empty-icon05.png" alt="">
+ 						 		最近没有下过订单哦~		
+ 					 		</p>
+ 					 		<a href="#"><button class="first">去首页看看</button></a>		 		
+@@ -520,7 +520,7 @@
+ 					 	<div class="dog">	
+ 					 		<a href="#"><button class="check">查看全部订单</button></a>	
+ 					 		<p> 		
+-						 		<img src="../../static/images/empty-icon05.png" alt="">
++						 		<img src="/images/empty-icon05.png" alt="">
+ 						 		最近没有待付款的订单哦~		
+ 					 		</p>
+ 					 		<a href="#"><button class="first">去首页看看</button></a>		 		
+@@ -563,7 +563,7 @@
+ 					 	<div class="dog">	
+ 					 		<a href="#"><button class="check">查看全部订单</button></a>	
+ 					 		<p> 		
+-						 		<img src="../../static/images/empty-icon05.png" alt="">
++						 		<img src="/images/empty-icon05.png" alt="">
+ 						 		最近没有待收货的订单哦~		
+ 					 		</p>
+ 					 		<a href="#"><button class="first">去首页看看</button></a>		 		
+@@ -606,7 +606,7 @@
+ 					 	<div class="dog">	
+ 					 		<a href="#"><button class="check">查看全部订单</button></a>	
+ 					 		<p> 		
+-						 		<img src="../../static/images/empty-icon05.png" alt="">
++						 		<img src="/images/empty-icon05.png" alt="">
+ 						 		还没有待评价的商品哦~		
+ 					 		</p>
+ 					 		<a href="#"><button class="first">去首页看看</button></a>		 		
+@@ -649,7 +649,7 @@
+ 					 	<div class="dog">	
+ 					 		<a href="#"><button class="check">查看全部订单</button></a>	
+ 					 		<p> 		
+-						 		<img src="../../static/images/empty-icon02.png" alt="">
++						 		<img src="/images/empty-icon02.png" alt="">
+ 						 		还没有常购商品哦~		
+ 					 		</p>
+ 					 		<a href="#"><button class="first">去首页看看</button></a>		 		
+@@ -692,7 +692,7 @@
+ 					 	<div class="dog">	
+ 					 		<a href="#"><button class="check">查看全部订单</button></a>	
+ 					 		<p> 		
+-						 		<img src="../../static/images/empty-icon05.png" alt="">
++						 		<img src="/images/empty-icon05.png" alt="">
+ 						 		回收站暂时还没有订单哦~		
+ 					 		</p>
+ 					 		<a href="#"><button class="first">去首页看看</button></a>		 		
+@@ -711,10 +711,10 @@
+ 		 				<p>五个橙子的故事5</p>
+ 		 				<div class="box">
+ 		 					<div class="bigbox">
+-		 						<img src="../../static/images/5b0b7f01N538765c3.jpg" alt="">
++		 						<img src="/images/5b0b7f01N538765c3.jpg" alt="">
+ 		 					</div>
+-		 					<p><img src="../../static/images/5bf37c42Nc61c4d54.jpg" alt=""></p>
+-		 					<p><img src="../../static/images/1b19e7d0ee127993.jpg" alt=""></p>
++		 					<p><img src="/images/5bf37c42Nc61c4d54.jpg" alt=""></p>
++		 					<p><img src="/images/1b19e7d0ee127993.jpg" alt=""></p>
+ 		 					<p>97</p>
+ 		 					<ul>
+ 		 						<li>
+@@ -733,10 +733,10 @@
+ 		 				<p>不入魔不成仙</p>
+ 		 				<div class="box">
+ 		 					<div class="bigbox">
+-		 						<img src="../../static/images/5ab29059N558ccbe5.jpg" alt="">
++		 						<img src="/images/5ab29059N558ccbe5.jpg" alt="">
+ 		 					</div>
+-		 					<p><img src="../../static/images/5ae3da32Na956864c.jpg" alt=""></p>
+-		 					<p><img src="../../static/images/8e31c6ea03a9cbcc.jpg" alt=""></p>
++		 					<p><img src="/images/5ae3da32Na956864c.jpg" alt=""></p>
++		 					<p><img src="/images/8e31c6ea03a9cbcc.jpg" alt=""></p>
+ 		 					<p>36</p>
+ 		 					<ul>
+ 		 						<li>
+@@ -755,10 +755,10 @@
+ 		 				<p>大海全都是水啊</p>
+ 		 				<div class="box">
+ 		 					<div class="bigbox">
+-		 						<img src="../../static/images/550161edN596cc322.jpg" alt="">
++		 						<img src="/images/550161edN596cc322.jpg" alt="">
+ 		 					</div>
+-		 					<p><img src="../../static/images/5a223fc0N09e4bb48.jpg" alt=""></p>
+-		 					<p><img src="../../static/images/5a0e8c6dNd2955313.jpg" alt=""></p>
++		 					<p><img src="/images/5a223fc0N09e4bb48.jpg" alt=""></p>
++		 					<p><img src="/images/5a0e8c6dNd2955313.jpg" alt=""></p>
+ 		 					<p>100</p>
+ 		 					<ul>
+ 		 						<li>
+@@ -777,10 +777,10 @@
+ 		 				<p>五个橙子的故事5</p>
+ 		 				<div class="box">
+ 		 					<div class="bigbox">
+-		 						<img src="../../static/images/58c0c6f6N400e20cb.jpg" alt="">
++		 						<img src="/images/58c0c6f6N400e20cb.jpg" alt="">
+ 		 					</div>
+-		 					<p><img src="../../static/images/5cdccef8N88e77c37.jpg" alt=""></p>
+-		 					<p><img src="../../static/images/5767a6a7Nc79187c1.jpg" alt=""></p>
++		 					<p><img src="/images/5cdccef8N88e77c37.jpg" alt=""></p>
++		 					<p><img src="/images/5767a6a7Nc79187c1.jpg" alt=""></p>
+ 		 					<p>89</p>
+ 		 					<ul>
+ 		 						<li>
+@@ -807,7 +807,7 @@
+ 		 		<ul class="one">
+ 		 			<li>
+ 		 				<a href="#">
+-		 					<img src="../../static/images/9a71ecaf01df80b6.jpg" alt="">
++		 					<img src="/images/9a71ecaf01df80b6.jpg" alt="">
+ 		 				</a>
+ 		 				<p>SKG 颈椎按摩器 颈部按摩仪 脖子牵引器 办公室护颈仪 热</p>
+ 		 				<p class="price">￥1.00</p>
+@@ -815,7 +815,7 @@
+ 		 			</li>
+ 		 			<li>
+ 		 				<a href="#">
+-		 					<img src="../../static/images/c20a99035ec2ea17.jpg" alt="">
++		 					<img src="/images/c20a99035ec2ea17.jpg" alt="">
+ 		 				</a>
+ 		 				<p>【法国国家队明星酒庄】法国原瓶原装进口红酒 菲特瓦干红</p>
+ 		 				<p class="price">￥768.00</p>
+@@ -823,7 +823,7 @@
+ 		 			</li>
+ 		 			<li>
+ 		 				<a href="#">
+-		 					<img src="../../static/images/37ec81dce7886889.jpg" alt="">
++		 					<img src="/images/37ec81dce7886889.jpg" alt="">
+ 		 				</a>
+ 		 				<p>德国SENAINS按摩椅家用全身SL双导轨零重力多功能全自动</p>
+ 		 				<p class="price">￥4280.00</p>
+@@ -831,7 +831,7 @@
+ 		 			</li>
+ 		 			<li>
+ 		 				<a href="#">
+-		 					<img src="../../static/images/204ab08f235e1aff.jpg" alt="">
++		 					<img src="/images/204ab08f235e1aff.jpg" alt="">
+ 		 				</a>
+ 		 				<p>创维盒子T2 电视机顶盒 智能网络盒子4核16G闪存 高清电</p>
+ 		 				<p class="price">￥169.00</p>
+@@ -839,7 +839,7 @@
+ 		 			</li>
+ 		 			<li>
+ 		 				<a href="#">
+-		 					<img src="../../static/images/d876d1e067f888e6.jpg" alt="">
++		 					<img src="/images/d876d1e067f888e6.jpg" alt="">
+ 		 				</a>
+ 		 				<p>【德国品牌】佳仁（JARE）按摩椅家用太空舱零重力全身按</p>
+ 		 				<p class="price">￥5999.00</p>
+@@ -849,7 +849,7 @@
+ 		 		<ul class="two">
+ 		 			<li>
+ 		 				<a href="#">
+-		 					<img src="../../static/images/c20a99035ec2ea17.jpg" alt="">
++		 					<img src="/images/c20a99035ec2ea17.jpg" alt="">
+ 		 				</a>
+ 		 				<p>【法国国家队明星酒庄】法国原瓶原装进口红酒 菲特瓦干红</p>
+ 		 				<p class="price">¥768.00</p>
+@@ -857,7 +857,7 @@
+ 		 			</li>
+ 		 			<li>
+ 		 				<a href="#">
+-		 					<img src="../../static/images/2.jpg" alt="">
++		 					<img src="/images/2.jpg" alt="">
+ 		 				</a>
+ 		 				<p>【超市红酒】曼妥思法国原瓶进口红酒黑宝塔干红葡萄酒礼</p>
+ 		 				<p class="price">¥280.00</p>
+@@ -865,7 +865,7 @@
+ 		 			</li>
+ 		 			<li>
+ 		 				<a href="#">
+-		 					<img src="../../static/images/204ab08f235e1aff.jpg" alt="">
++		 					<img src="/images/204ab08f235e1aff.jpg" alt="">
+ 		 				</a>
+ 		 				<p>小米盒子4C 智能机顶盒 H.265硬解安卓网络盒子</p>
+ 		 				<p class="price">¥189.00</p>
+@@ -873,7 +873,7 @@
+ 		 			</li>
+ 		 			<li>
+ 		 				<a href="#">
+-		 					<img src="../../static/images/166f623434309514.jpg" alt="">
++		 					<img src="/images/166f623434309514.jpg" alt="">
+ 		 				</a>
+ 		 				<p>奥克斯 按摩椅家用全身豪华太空舱多功能零重力全自动智能</p>
+ 		 				<p class="price">¥4820.00</p>
+@@ -881,7 +881,7 @@
+ 		 			</li>
+ 		 			<li>
+ 		 				<a href="#">
+-		 					<img src="../../static/images/3.jpg" alt="">
++		 					<img src="/images/3.jpg" alt="">
+ 		 				</a>
+ 		 				<p>璐瑶黑头吸出器吸黑头去黑头仪器神器毛孔清洁器粉刺油脂</p>
+ 		 				<p class="price">¥68.00</p>
+@@ -891,7 +891,7 @@
+ 		 		<ul class="three">
+ 		 			<li>
+ 		 				<a href="#">
+-		 					<img src="../../static/images/4.jpg" alt="">
++		 					<img src="/images/4.jpg" alt="">
+ 		 				</a>
+ 		 				<p>【年度家庭爆款】志高（CHIGO）智能按摩椅家用全</p>
+ 		 				<p class="price">¥4280.00</p>
+@@ -899,7 +899,7 @@
+ 		 			</li>
+ 		 			<li>
+ 		 				<a href="#">
+-		 					<img src="../../static/images/5.jpg" alt="">
++		 					<img src="/images/5.jpg" alt="">
+ 		 				</a>
+ 		 				<p>【法国国家队明星酒庄】法国原瓶原装进口红酒 菲特瓦干红</p>
+ 		 				<p class="price">¥596.00</p>
+@@ -933,7 +933,7 @@
+ 
+ 		 	</div>
+ 		 	<div class="bottom">
+-		 		<img src="../../static/images/26a1b9fba32960d8.jpg" alt="">
++		 		<img src="/images/26a1b9fba32960d8.jpg" alt="">
+ 		 	</div>
+ 		</section>
+ 		<footer>
+@@ -1020,7 +1020,7 @@
+ 				</p>
+ 			</div>
+ 		</footer>
+-		<script src="../../static/js/my-order.js">
++		<script src="/js/my-order.js">
+ 		</script>
+ 	</body>
+ </html>
+\ No newline at end of file
+Index: src/main/java/com/online/retailer/service/UserDetailIm.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/main/java/com/online/retailer/service/UserDetailIm.java	(revision 225b28ad0c29db5ddb1912263b3b604798a30dd8)
++++ src/main/java/com/online/retailer/service/UserDetailIm.java	(date 1638717296919)
+@@ -1,25 +1,37 @@
+-//package com.online.retailer.service;
+-//
+-//import com.online.retailer.model.Customer;
+-//import org.springframework.security.core.authority.SimpleGrantedAuthority;
+-//import org.springframework.security.core.userdetails.UserDetails;
+-//import org.springframework.security.core.userdetails.UserDetailsService;
+-//import org.springframework.security.core.userdetails.UsernameNotFoundException;
+-//import org.springframework.stereotype.Component;
+-//
+-//import java.util.ArrayList;
+-//import java.util.List;
+-//import java.util.stream.Collectors;
+-//
+-//@Component
+-//public class UserDetailIm implements UserDetailsService {
+-//    @Override
+-//    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+-//        Customer customer = new Customer();
+-//        customer.setUser_id(1);
+-////        List<SimpleGrantedAuthority> collect = customer2.stream()
+-////                .map(customer -> new SimpleGrantedAuthority(customer.getAuthority()))
+-////                .collect(Collectors.toList());
+-//        return (UserDetails) customer;
+-//    }
+-//}
++package com.online.retailer.service;
++
++import com.online.retailer.mapper.CustomerMapper;
++import com.online.retailer.mapper.IdentityMapper;
++import com.online.retailer.model.Customer;
++import com.online.retailer.model.Identity;
++import org.springframework.beans.factory.annotation.Autowired;
++import org.springframework.security.core.authority.SimpleGrantedAuthority;
++import org.springframework.security.core.userdetails.User;
++import org.springframework.security.core.userdetails.UserDetails;
++import org.springframework.security.core.userdetails.UserDetailsService;
++import org.springframework.security.core.userdetails.UsernameNotFoundException;
++import org.springframework.stereotype.Component;
++
++import java.util.ArrayList;
++import java.util.List;
++import java.util.stream.Collectors;
++
++@Component
++public class UserDetailIm implements UserDetailsService {
++    @Autowired
++    private CustomerMapper customerMapper;
++    @Autowired
++    private IdentityMapper identityMapper;
++
++    @Override
++    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
++        Customer customer = customerMapper.selectUserByAccount(username);
++        List<Identity> identityList = identityMapper.findIdentityByAccount(username);
++        List<SimpleGrantedAuthority> collect = identityList.stream()
++                .map(indentity -> new SimpleGrantedAuthority(indentity.getIdentity()))
++                .collect(Collectors.toList());
++
++        User user = new User(customer.getUserAccount(),customer.getUserPassword(),collect);
++        return (UserDetails) user;
++    }
++}
+Index: src/main/java/com/online/retailer/config/SecurityConfig.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/main/java/com/online/retailer/config/SecurityConfig.java	(revision 225b28ad0c29db5ddb1912263b3b604798a30dd8)
++++ src/main/java/com/online/retailer/config/SecurityConfig.java	(date 1638714689425)
+@@ -1,18 +1,41 @@
+-//package com.online.retailer.config;
+-//
+-//import com.online.retailer.service.UserDetailIm;
+-//import org.springframework.beans.factory.annotation.Autowired;
+-//import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+-//import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+-//import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+-//
+-//@EnableWebSecurity
+-//public class SecurityConfig extends WebSecurityConfigurerAdapter {
+-//    @Autowired
+-//    UserDetailIm userDetailIm;
+-//
+-//    @Override
+-//    public void configure(AuthenticationManagerBuilder auth) throws Exception {
+-//        auth.userDetailsService(userDetailIm);
+-//    }
+-//}
++package com.online.retailer.config;
++
++import com.online.retailer.service.UserDetailIm;
++import org.springframework.beans.factory.annotation.Autowired;
++import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
++import org.springframework.security.config.annotation.web.builders.HttpSecurity;
++import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
++import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
++import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
++
++@EnableWebSecurity
++public class SecurityConfig extends WebSecurityConfigurerAdapter {
++    @Autowired
++    UserDetailIm userDetailIm;
++
++    @Override
++    public void configure(AuthenticationManagerBuilder auth) throws Exception {
++        BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
++        auth.userDetailsService(userDetailIm).passwordEncoder(bCryptPasswordEncoder);
++    }
++
++    @Override
++    protected void configure(HttpSecurity http) throws Exception {
++        http.authorizeRequests()
++                .antMatchers("/").permitAll()
++                .antMatchers("/login").permitAll()
++                .antMatchers("/register").permitAll()
++                .antMatchers("/registerTwo").permitAll()
++                .antMatchers("/registerThree").permitAll()
++                .antMatchers("/css/**","/js/**","/images/**","pxcp/**").permitAll()
++                .anyRequest().authenticated();
++//                .and()
++//                .formLogin();
++        http.formLogin()
++                .loginPage("/login")
++                .usernameParameter("userAccount").passwordParameter("password")
++                .defaultSuccessUrl("/")
++                .failureForwardUrl("/login?error");
++
++    }
++}
+Index: src/main/resources/templates/schoolmasterWNB/sign-up-two.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/main/resources/templates/schoolmasterWNB/sign-up-two.html	(revision 225b28ad0c29db5ddb1912263b3b604798a30dd8)
++++ src/main/resources/templates/schoolmasterWNB/sign-up-two.html	(date 1638719302021)
+@@ -1,19 +1,19 @@
+ <!DOCTYPE html>
+-<html lang="en">
++<html lang="en" xmlns:th="http://www.thymeleaf.org">
+       <head>
+             <meta charset="UTF-8">
+             <title>个人注册</title>
+-            <link rel="stylesheet" href="../../static/css/cssreset.css">
+-            <link rel="stylecut icon" href="../../static/favicon.ico">
+-            <link rel="stylesheet" href="../../static/css/sign-up-two.css">
+-            <script src="../../static/js/jquery-3.0.0.min.js"></script>
++            <link rel="stylesheet" href="/css/cssreset.css">
++            <link rel="stylecut icon" href="/favicon.ico">
++            <link rel="stylesheet" href="/css/sign-up-two.css">
++            <script src="/js/jquery-3.0.0.min.js"></script>
+       </head>
+       <body>
+              <div class="fix">                
+             </div>
+          <header>
+             <div class="header">
+-                 <h1><img src="../../static/images/logo-201305-b.png" alt=""></h1>
++                 <h1><img src="/images/logo-201305-b.png" alt=""></h1>
+                  <h2>欢迎注册</h2>
+                  <p>已有账号？<a href="login.html">请登录></a></p> 
+             </div>            
+@@ -24,11 +24,11 @@
+                   <li class="c2"><span class="green1 one">2</span><span class="green2 two">填写账号信息</span></li>
+                   <li class="c3"><span class="one">3</span><span class="two">注册成功</span></li>
+             </ul>            
+-           <form action="sign-up-last.html">
++           <form th:action="@{/registerThree}" method="post">
+               <ul>
+-                  <li><span>用 &nbsp户 &nbsp名</span><input type="text" placeholder="您的账户名和登录名"></li>
++                  <li><span>用 &nbsp户 &nbsp名</span><input type="text" placeholder="您的账户名和登录名" name="username"></li>
+                   <p class="tip tip1"><span></span>用户名不能为空</p>
+-                  <li><span>设 置 密 码</span><input type="password" placeholder="建议使用两种或两种以上字符组合"></li>
++                  <li><span>设 置 密 码</span><input type="password" placeholder="建议使用两种或两种以上字符组合" name="password"></li>
+                   <p class="tip tip2"><span></span>密码不能为空</p>
+                   <li><span>确 认 密 码</span><input type="password" placeholder="请再次输入密码"></li>
+                   <p class="tip tip3"><span></span>请确认密码</p>
+@@ -50,6 +50,6 @@
+                   <p><a href="#">关于我们</a><a href="#">联系我们</a><a href="#">人才招聘</a><a href="#">商家入驻</a><a href="#">广告服务</a><a href="#">手机京东</a><a href="#">友情链接</a><a href="#">销售联盟</a><a href="#">京东社区</a><a href="#">京东公益</a><a href="#">English Site</a></p>
+                   <p>Copyright © 2004-2020  京东JD.com 版权所有</p>
+          </footer>
+-      <script src="../../static/js/sign-up-two.js"></script>
++      <script src="/js/sign-up-two.js"></script>
+       </body>
+       </html>
+\ No newline at end of file
+Index: src/main/resources/templates/schoolmasterWNB/sign-up.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/main/resources/templates/schoolmasterWNB/sign-up.html	(revision 225b28ad0c29db5ddb1912263b3b604798a30dd8)
++++ src/main/resources/templates/schoolmasterWNB/sign-up.html	(date 1638719302081)
+@@ -1,20 +1,20 @@
+ <!DOCTYPE html>
+-<html lang="en">
++<html lang="en" xmlns:th="http://www.thymeleaf.org">
+       <head>
+             <meta charset="UTF-8">
+             <title>个人注册</title>
+-            <link rel="stylesheet" href="../../static/css/cssreset.css">
+-            <link rel="stylecut icon" href="../../static/favicon.ico">
+-            <link rel="stylesheet" href="../../static/css/sign-up.css">
+-            <script src="../../static/js/jquery-3.0.0.min.js"></script>
++            <link rel="stylesheet" href="/css/cssreset.css">
++            <link rel="stylecut icon" href="/favicon.ico">
++            <link rel="stylesheet" href="/css/sign-up.css">
++            <script src="/js/jquery-3.0.0.min.js"></script>
+       </head>
+       <body>
+-        <form action="sign-up-two.html">
++        <form th:action="@{/registerTwo}" method="post">
+             <div class="fix">                
+             </div>
+          <header>
+             <div class="header">
+-                 <h1><img src="../../static/images/logo-201305-b.png" alt=""></h1>
++                 <h1><img src="/images/logo-201305-b.png" alt=""></h1>
+                  <h2>欢迎注册</h2>
+                  <p>已有账号？<a href="login.html">请登录></a></p> 
+             </div>            
+@@ -182,6 +182,6 @@
+                   <p>Copyright © 2004-2020  京东JD.com 版权所有</p>
+          </footer>
+          </form>
+-        <script src="../../static/js/sign-up.js"></script>
++        <script src="/js/sign-up.js"></script>
+       </body>
+       </html>
+\ No newline at end of file
+Index: src/main/java/com/online/retailer/controller/RegisterController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/main/java/com/online/retailer/controller/RegisterController.java	(revision 225b28ad0c29db5ddb1912263b3b604798a30dd8)
++++ src/main/java/com/online/retailer/controller/RegisterController.java	(date 1638719302047)
+@@ -1,5 +1,61 @@
+ package com.online.retailer.controller;
+ 
++import com.online.retailer.mapper.IdentityMapper;
++import com.online.retailer.model.Identity;
++import com.online.retailer.service.UserDetailIm;
++import org.springframework.beans.factory.annotation.Autowired;
++import org.springframework.http.HttpRequest;
++import org.springframework.security.authentication.AuthenticationManager;
++import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
++import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
++import org.springframework.security.core.Authentication;
++import org.springframework.security.core.AuthenticationException;
++import org.springframework.security.core.userdetails.User;
++import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
++import org.springframework.stereotype.Controller;
++import org.springframework.web.bind.annotation.GetMapping;
++import org.springframework.web.bind.annotation.PostMapping;
++
++import javax.servlet.http.HttpServletRequest;
++import java.util.ArrayList;
++import java.util.List;
++
++@Controller
+ public class RegisterController implements IController{
++    @Autowired
++    IdentityMapper identityMapper;
++
++    @Autowired
++    UserDetailIm userDetailIm;
++
++    @Autowired
++    AuthenticationManagerBuilder authenticationManagerBuilder;
++    @GetMapping("/register")
++    public String register(){
++        return "schoolmasterWNB/sign-up.html";
++    }
++    @PostMapping("/registerTwo")
++    public String registerTwo(){
++        return "schoolmasterWNB/sign-up-two.html";
++    }
++    @PostMapping("/registerThree")
++    public String registerThree(HttpServletRequest httpServletRequest){
++        String username = httpServletRequest.getParameter("username");
++        String password = httpServletRequest.getParameter("password");
++        List<Identity> identityList = identityMapper.findIdentityByAccount(username);
++
++        //进行身份验证
++//        UsernamePasswordAuthenticationToken token = new UsernamePasswordAuthenticationToken(username,password);
++        try{
++//            token.setDetails(userDetailIm);
++            BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
++            authenticationManagerBuilder.userDetailsService(userDetailIm).passwordEncoder(bCryptPasswordEncoder);
++        }catch (AuthenticationException e){
+ 
++        } catch (Exception e) {
++            e.printStackTrace();
++        }
++
++        return "schoolmasterWNB/sign-up-last.html";
++    }
+ }
+Index: src/main/java/com/online/retailer/controller/LoginController.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/main/java/com/online/retailer/controller/LoginController.java	(revision 225b28ad0c29db5ddb1912263b3b604798a30dd8)
++++ src/main/java/com/online/retailer/controller/LoginController.java	(date 1638696217112)
+@@ -5,8 +5,9 @@
+ @Controller
+ public class LoginController implements IController{
+     //实现登陆后，页面的请求
+-    @GetMapping("/schoolmasterWNB/login")
++    @GetMapping("/login")
+     public String myorder(){
++//        System.out.println("跳转了");
+         return "schoolmasterWNB/login.html";
+     }
+     //添加黑名单拦截器
+Index: pom.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- pom.xml	(revision 225b28ad0c29db5ddb1912263b3b604798a30dd8)
++++ pom.xml	(date 1638696648843)
+@@ -21,10 +21,10 @@
+             <groupId>org.springframework.boot</groupId>
+             <artifactId>spring-boot-starter-data-redis</artifactId>
+         </dependency>
+-<!--        <dependency>-->
+-<!--            <groupId>org.springframework.boot</groupId>-->
+-<!--            <artifactId>spring-boot-starter-security</artifactId>-->
+-<!--        </dependency>-->
++        <dependency>
++            <groupId>org.springframework.boot</groupId>
++            <artifactId>spring-boot-starter-security</artifactId>
++        </dependency>
+         <dependency>
+             <groupId>org.springframework.boot</groupId>
+             <artifactId>spring-boot-starter-thymeleaf</artifactId>
+@@ -39,6 +39,10 @@
+             <version>2.2.0</version>
+         </dependency>
+ 
++        <dependency>
++            <groupId>org.springframework.amqp</groupId>
++            <artifactId>spring-rabbit</artifactId>
++        </dependency>
+         <dependency>
+             <groupId>mysql</groupId>
+             <artifactId>mysql-connector-java</artifactId>
+Index: src/main/resources/templates/schoolmasterWNB/sign-up-last.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/main/resources/templates/schoolmasterWNB/sign-up-last.html	(revision 225b28ad0c29db5ddb1912263b3b604798a30dd8)
++++ src/main/resources/templates/schoolmasterWNB/sign-up-last.html	(date 1638715668761)
+@@ -1,19 +1,19 @@
+ <!DOCTYPE html>
+-<html lang="en">
++<html lang="en" xmlns:th="http://www.thymeleaf.org">
+       <head>
+             <meta charset="UTF-8">
+             <title>个人注册</title>
+-            <link rel="stylesheet" href="../../static/css/cssreset.css">
+-            <link rel="stylecut icon" href="../../static/favicon.ico">
+-            <link rel="stylesheet" href="../../static/css/sign-up-last.css">
+-            <script src="../../static/js/jquery-3.0.0.min.js"></script>
++            <link rel="stylesheet" href="/css/cssreset.css">
++            <link rel="stylecut icon" href="/favicon.ico">
++            <link rel="stylesheet" href="/css/sign-up-last.css">
++            <script src="/js/jquery-3.0.0.min.js"></script>
+       </head>
+       <body>
+             <div class="fix">                
+             </div>
+          <header>
+             <div class="header">
+-                 <h1><img src="../../static/images/logo-201305-b.png" alt=""></h1>
++                 <h1><img src="/images/logo-201305-b.png" alt=""></h1>
+                  <h2>欢迎注册</h2>
+                  <p>已有账号？<a href="login.html">请登录></a></p> 
+             </div>            
+@@ -22,7 +22,7 @@
+                 <div></div>
+                 <h4>恭喜您 代码小白</h4>
+                 <p>你已成功注册为京东用户，祝您购物愉快~</p>
+-                <a href="../../static/index.html"><button class="shopping">去购物</button></a>
++                <a href="/" methods="post"><button class="shopping">去购物</button></a>
+             </main>
+ 
+          <footer>
+Index: src/main/resources/static/index.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/main/resources/static/index.html	(revision 225b28ad0c29db5ddb1912263b3b604798a30dd8)
++++ src/main/resources/static/index.html	(date 1638711193494)
+@@ -160,7 +160,7 @@
+ 					</li>
+ 					<li>
+ 						<div></div>
+-						<a href="../templates/schoolmasterWNB/myorder.html">我的订单</a>
++						<a href="schoolmasterWNB/myorder">我的订单</a>
+ 					</li>
+ 					<li class="myjd arrow">					
+ 						<div>
+@@ -1026,7 +1026,7 @@
+ 					<div class="top">
+ 						<img src="images/index/下载 (4).png" alt="">
+ 						<p><a href="#">Hi~欢迎逛京东！</a></p>
+-						<p><a href="/schoolmasterWNB/login.html">登录</a> | <a href="/schoolmasterWNB/sign-up.html">注册</a></p>
++						<p><a href="/login">登录</a> | <a href="/register">注册</a></p>
+ 						<span class="new">新人福利</span><span class="vip">PLUS会员</span>
+ 					</div>
+ 					<div class="mid">
+Index: src/main/java/com/online/retailer/model/Identity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/main/java/com/online/retailer/model/Identity.java	(date 1638691569887)
++++ src/main/java/com/online/retailer/model/Identity.java	(date 1638691569887)
+@@ -0,0 +1,33 @@
++package com.online.retailer.model;
++
++import org.springframework.stereotype.Component;
++
++@Component
++public class Identity {
++    int id;
++    String identity;
++
++    @Override
++    public String toString() {
++        return "Identity{" +
++                "id=" + id +
++                ", identity='" + identity + '\'' +
++                '}';
++    }
++
++    public int getId() {
++        return id;
++    }
++
++    public void setId(int id) {
++        this.id = id;
++    }
++
++    public String getIdentity() {
++        return identity;
++    }
++
++    public void setIdentity(String identity) {
++        this.identity = identity;
++    }
++}
+Index: src/test/java/com/online/retailer/RetailerApplicationTests.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/test/java/com/online/retailer/RetailerApplicationTests.java	(revision 225b28ad0c29db5ddb1912263b3b604798a30dd8)
++++ src/test/java/com/online/retailer/RetailerApplicationTests.java	(date 1638705027310)
+@@ -3,8 +3,10 @@
+ import com.online.retailer.mapper.CustomerMapper;
+ import com.online.retailer.model.Customer;
+ import org.junit.jupiter.api.Test;
++import org.springframework.amqp.rabbit.core.RabbitTemplate;
+ import org.springframework.beans.factory.annotation.Autowired;
+ import org.springframework.boot.test.context.SpringBootTest;
++import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+ 
+ import java.lang.reflect.Array;
+ import java.sql.Date;
+@@ -18,15 +20,21 @@
+ class RetailerApplicationTests {
+     @Autowired
+     CustomerMapper customerMapper;
++
++    @Autowired
++    RabbitTemplate rabbitTemplate;
+     @Test
+     void testCustomerMapper() {
++        BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
++        String pwd = "123456";
++        pwd = bCryptPasswordEncoder.encode(pwd);
+         java.util.Date now = new java.util.Date();
+         Date date = new Date(now.getTime());
+         Customer customer = new Customer();
+ //        customer.setUserId(1);
+         customer.setUserAccount("155212817289");
+         customer.setUserName("何顺龙2");
+-        customer.setUserPassword(1234567);
++        customer.setUserPassword("1234567");
+         customer.setUserAddress("增城");
+         customer.setUserBirthday(date);
+         customer.setUserIdentity("superVip");
+@@ -43,4 +51,12 @@
+     void AAA(){
+         System.out.println("aa");
+     }
++
++    @Test
++    void amqpAPI(){
++        Customer customer = new Customer();
++        customer.setUserId(1);
++        customer.setUserName("aaa");
++        rabbitTemplate.convertAndSend("fanout_exchange","",customer);
++    }
+ }
+Index: src/main/resources/application.properties
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>GBK
+===================================================================
+--- src/main/resources/application.properties	(revision 225b28ad0c29db5ddb1912263b3b604798a30dd8)
++++ src/main/resources/application.properties	(date 1638705558560)
+@@ -8,8 +8,15 @@
+ spring.redis.port=6379
+ spring.redis.host=127.0.0.1
+ 
+-spring.thymeleaf.cache=true
++spring.thymeleaf.cache=false
+ #spring.thymeleaf.encoding=utf-8
+ #spring.thymeleaf.mode=HTML5
+ #spring.thymeleaf.prefix=classpath:/resources/templates/
+-#spring.thymeleaf.suffix=.html
+\ No newline at end of file
++#spring.thymeleaf.suffix=.html
++
++#rabbit
++spring.rabbitmq.host=127.0.0.1
++spring.rabbitmq.port=5672
++spring.rabbitmq.username=admin
++spring.rabbitmq.password=123456
++spring.rabbitmq.virtual-host=/
+Index: src/main/java/com/online/retailer/mapper/CustomerMapper.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/main/java/com/online/retailer/mapper/CustomerMapper.java	(revision 225b28ad0c29db5ddb1912263b3b604798a30dd8)
++++ src/main/java/com/online/retailer/mapper/CustomerMapper.java	(date 1638717128061)
+@@ -9,10 +9,10 @@
+     @Select("select * from user where user_id = #{userId}")
+     public Customer selectUserById(int userId);
+ 
+-    @Select("select * from user where user_id = #{name}")
++    @Select("select * from user where user_name = #{name}")
+     public Customer selectUserByName(String name);
+ 
+-    @Select("select * from user where user_id = #{account}")
++    @Select("select * from user where user_account = #{account}")
+     public Customer selectUserByAccount(String account);
+     //找用户名
+     @Select("select user_name from user where user_id = #{userId}")
+Index: src/main/java/com/online/retailer/service/RabbitService/RabbitShoppingService.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/main/java/com/online/retailer/service/RabbitService/RabbitShoppingService.java	(date 1638707188333)
++++ src/main/java/com/online/retailer/service/RabbitService/RabbitShoppingService.java	(date 1638707188333)
+@@ -0,0 +1,24 @@
++package com.online.retailer.service.RabbitService;
++
++import org.springframework.amqp.core.Message;
++import org.springframework.amqp.rabbit.annotation.RabbitListener;
++import org.springframework.stereotype.Service;
++
++@Service
++public class RabbitShoppingService {
++    //发送短信服务
++    @RabbitListener(queues = "fanout_queue_email")
++    public void sendEmailToOutLook(Message message){
++        byte[] oper = message.getBody();
++        String messageBody = new String(oper);
++        System.out.println(messageBody);
++    }
++
++    //制定任务计划程序
++    @RabbitListener(queues = "fanout_queue_sms")
++    public void createTask(Message message){
++        byte[] content = message.getBody();
++        String s = new String(content);
++        System.out.println(s);
++    }
++}
+Index: src/main/java/com/online/retailer/model/Customer.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/main/java/com/online/retailer/model/Customer.java	(revision 225b28ad0c29db5ddb1912263b3b604798a30dd8)
++++ src/main/java/com/online/retailer/model/Customer.java	(date 1638692013154)
+@@ -14,7 +14,7 @@
+     private int userId;
+     private String userName;
+     private String userAccount;
+-    private int userPassword;
++    private String userPassword;
+     private int userWallet;
+     private String userAddress;
+     private String userIdentity;
+@@ -64,11 +64,11 @@
+         this.userAccount = userAccount;
+     }
+ 
+-    public int getUserPassword() {
++    public String getUserPassword() {
+         return userPassword;
+     }
+ 
+-    public void setUserPassword(int userPassword) {
++    public void setUserPassword(String userPassword) {
+         this.userPassword = userPassword;
+     }
+ 
+Index: src/main/java/com/online/retailer/config/RabbitConfig.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/main/java/com/online/retailer/config/RabbitConfig.java	(date 1638706224077)
++++ src/main/java/com/online/retailer/config/RabbitConfig.java	(date 1638706224077)
+@@ -0,0 +1,16 @@
++package com.online.retailer.config;
++
++
++import org.springframework.amqp.support.converter.Jackson2JsonMessageConverter;
++import org.springframework.amqp.support.converter.MessageConverter;
++import org.springframework.context.annotation.Bean;
++import org.springframework.context.annotation.Configuration;
++import org.springframework.stereotype.Service;
++
++@Configuration
++public class RabbitConfig {
++    @Bean
++    public MessageConverter messageConverter(){
++        return new Jackson2JsonMessageConverter();
++    }
++}
