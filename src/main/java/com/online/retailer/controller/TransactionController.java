@@ -1,4 +1,8 @@
 package com.online.retailer.controller;
 
-public class TransactionController implements IController{
+import org.apache.ibatis.annotations.Mapper;
+
+@Mapper
+public class TransactionController{
+
 }

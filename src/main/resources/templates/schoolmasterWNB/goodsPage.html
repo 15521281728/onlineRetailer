@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="utf-8" />
+		<title>商品</title>
+	</head>
+	<body>
+		<!-- 商品信息 -->
+		<div>
+			<img th:src="${imgUri}">
+		</div>
+		<!-- 购买商品 -->
+		<form th:action="@{/butGoods}" method="get">
+			购买
+		</form>
+	</body>
+</html>

@@ -4,30 +4,30 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class Identity {
-    int id;
-    String identity;
+    int identityId;
+    String identityRose;
 
     @Override
     public String toString() {
         return "Identity{" +
-                "id=" + id +
-                ", identity='" + identity + '\'' +
+                "identityId=" + identityId +
+                ", identityRose='" + identityRose + '\'' +
                 '}';
     }
 
-    public int getId() {
-        return id;
+    public int getIdentityId() {
+        return identityId;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setIdentityId(int identityId) {
+        this.identityId = identityId;
     }
 
-    public String getIdentity() {
-        return identity;
+    public String getIdentityRose() {
+        return identityRose;
     }
 
-    public void setIdentity(String identity) {
-        this.identity = identity;
+    public void setIdentityRose(String identityRose) {
+        this.identityRose = identityRose;
     }
 }

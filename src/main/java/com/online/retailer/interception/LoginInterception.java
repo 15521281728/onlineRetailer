@@ -10,6 +10,7 @@ public class LoginInterception implements HandlerInterceptor {
     //在这里实现身份验证
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+
         return false;
     }
 

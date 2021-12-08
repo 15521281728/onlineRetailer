@@ -8,123 +8,123 @@ import java.util.Date;
 import java.util.Set;
 
 @Component
-public class Customer implements IUser {
+public class Customer {
     //基本对应数据库的键
     //实现IUser的接口
-    private int userId;
-    private String userName;
-    private String userAccount;
-    private String userPassword;
-    private int userWallet;
-    private String userAddress;
-    private String userIdentity;
-    private Date userBirthday;
-    private String userBankCard;
-    private String userBank;
-    private String userGender;
+    private int CustomerId;
+    private String CustomerName;
+    private String CustomerAccount;
+    private String CustomerPassword;
+    private int CustomerWallet;
+    private String CustomerAddress;
+    private String CustomerIdentity;
+    private Date CustomerBirthday;
+    private String CustomerBankCard;
+    private String CustomerBank;
+    private String CustomerGender;
 
     @Override
     public String toString() {
         return "Customer{" +
-                "userId=" + userId +
-                ", userName='" + userName + '\'' +
-                ", userAccount='" + userAccount + '\'' +
-                ", userPassword=" + userPassword +
-                ", userWallet=" + userWallet +
-                ", userAddress='" + userAddress + '\'' +
-                ", userIdentity='" + userIdentity + '\'' +
-                ", userBirthday=" + userBirthday +
-                ", userBankCard='" + userBankCard + '\'' +
-                ", userBank='" + userBank + '\'' +
-                ", userGender='" + userGender + '\'' +
+                "CustomerId=" + CustomerId +
+                ", CustomerName='" + CustomerName + '\'' +
+                ", CustomerAccount='" + CustomerAccount + '\'' +
+                ", CustomerPassword=" + CustomerPassword +
+                ", CustomerWallet=" + CustomerWallet +
+                ", CustomerAddress='" + CustomerAddress + '\'' +
+                ", CustomerIdentity='" + CustomerIdentity + '\'' +
+                ", CustomerBirthday=" + CustomerBirthday +
+                ", CustomerBankCard='" + CustomerBankCard + '\'' +
+                ", CustomerBank='" + CustomerBank + '\'' +
+                ", CustomerGender='" + CustomerGender + '\'' +
                 '}';
     }
 
-    public int getUserId() {
-        return userId;
+    public int getCustomerId() {
+        return CustomerId;
     }
 
-    public void setUserId(int userId) {
-        this.userId = userId;
+    public void setCustomerId(int CustomerId) {
+        this.CustomerId = CustomerId;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getCustomerName() {
+        return CustomerName;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setCustomerName(String CustomerName) {
+        this.CustomerName = CustomerName;
     }
 
-    public String getUserAccount() {
-        return userAccount;
+    public String getCustomerAccount() {
+        return CustomerAccount;
     }
 
-    public void setUserAccount(String userAccount) {
-        this.userAccount = userAccount;
+    public void setCustomerAccount(String CustomerAccount) {
+        this.CustomerAccount = CustomerAccount;
     }
 
-    public String getUserPassword() {
-        return userPassword;
+    public String getCustomerPassword() {
+        return CustomerPassword;
     }
 
-    public void setUserPassword(String userPassword) {
-        this.userPassword = userPassword;
+    public void setCustomerPassword(String CustomerPassword) {
+        this.CustomerPassword = CustomerPassword;
     }
 
-    public int getUserWallet() {
-        return userWallet;
+    public int getCustomerWallet() {
+        return CustomerWallet;
     }
 
-    public void setUserWallet(int userWallet) {
-        this.userWallet = userWallet;
+    public void setCustomerWallet(int CustomerWallet) {
+        this.CustomerWallet = CustomerWallet;
     }
 
-    public String getUserAddress() {
-        return userAddress;
+    public String getCustomerAddress() {
+        return CustomerAddress;
     }
 
-    public void setUserAddress(String userAddress) {
-        this.userAddress = userAddress;
+    public void setCustomerAddress(String CustomerAddress) {
+        this.CustomerAddress = CustomerAddress;
     }
 
-    public String getUserIdentity() {
-        return userIdentity;
+    public String getCustomerIdentity() {
+        return CustomerIdentity;
     }
 
-    public void setUserIdentity(String userIdentity) {
-        this.userIdentity = userIdentity;
+    public void setCustomerIdentity(String CustomerIdentity) {
+        this.CustomerIdentity = CustomerIdentity;
     }
 
-    public Date getUserBirthday() {
-        return userBirthday;
+    public Date getCustomerBirthday() {
+        return CustomerBirthday;
     }
 
-    public void setUserBirthday(Date userBirthday) {
-        this.userBirthday = userBirthday;
+    public void setCustomerBirthday(Date CustomerBirthday) {
+        this.CustomerBirthday = CustomerBirthday;
     }
 
-    public String getUserBankCard() {
-        return userBankCard;
+    public String getCustomerBankCard() {
+        return CustomerBankCard;
     }
 
-    public void setUserBankCard(String userBankCard) {
-        this.userBankCard = userBankCard;
+    public void setCustomerBankCard(String CustomerBankCard) {
+        this.CustomerBankCard = CustomerBankCard;
     }
 
-    public String getUserBank() {
-        return userBank;
+    public String getCustomerBank() {
+        return CustomerBank;
     }
 
-    public void setUserBank(String userBank) {
-        this.userBank = userBank;
+    public void setCustomerBank(String CustomerBank) {
+        this.CustomerBank = CustomerBank;
     }
 
-    public String getUserGender() {
-        return userGender;
+    public String getCustomerGender() {
+        return CustomerGender;
     }
 
-    public void setUserGender(String userGender) {
-        this.userGender = userGender;
+    public void setCustomerGender(String CustomerGender) {
+        this.CustomerGender = CustomerGender;
     }
 }
