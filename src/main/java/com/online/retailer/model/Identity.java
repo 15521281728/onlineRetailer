@@ -5,13 +5,13 @@ import org.springframework.stereotype.Component;
 @Component
 public class Identity {
     int identityId;
-    String identityRose;
+    String identityRole;
 
     @Override
     public String toString() {
         return "Identity{" +
                 "identityId=" + identityId +
-                ", identityRose='" + identityRose + '\'' +
+                ", identityRole='" + identityRole + '\'' +
                 '}';
     }
 
@@ -23,11 +23,11 @@ public class Identity {
         this.identityId = identityId;
     }
 
-    public String getIdentityRose() {
-        return identityRose;
+    public String getIdentityRole() {
+        return identityRole;
     }
 
-    public void setIdentityRose(String identityRose) {
-        this.identityRose = identityRose;
+    public void setIdentityRole(String identityRose) {
+        this.identityRole = identityRose;
     }
 }

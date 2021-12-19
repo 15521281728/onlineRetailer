@@ -8,15 +8,17 @@ public class MyUser {
     private int id;
     private String username;
     private String password;
+    private String name;
     List<Identity> identityList;
     public MyUser(){
 
     }
 
-    public MyUser(int id, String username, String password, List<Identity> identityList) {
+    public MyUser(int id, String username, String password, String name, List<Identity> identityList) {
         this.id = id;
         this.username = username;
         this.password = password;
+        this.name = name;
         this.identityList = identityList;
     }
 
@@ -26,8 +28,17 @@ public class MyUser {
                 "id=" + id +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
+                ", name='" + name + '\'' +
                 ", identityList=" + identityList +
                 '}';
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public int getId() {

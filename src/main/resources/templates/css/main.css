@@ -1,0 +1,424 @@
+/*因为大部分的字体都是12px,颜色一致, 所以统一设置下*/
+body{
+
+    font-size: 12px;
+    color: #666666;
+}
+
+/*!--1.登录部分login -->*/
+.login{
+        /*外层div 1280px  29px border:1px dddddd bac:f7f7f7*/
+    height: 29px;
+    border-bottom: 1px solid #dddddd;
+    background-color: #f7f7f7;
+}
+  /*<!--1.2 内层内容-->  */
+.login-content{
+    /*内层: 1200px 29px 居中*/
+    width: 1200px;
+    height: 29px;
+    margin: 0 auto;
+}
+/*<!--1.3 天天生鲜 h2-->*/
+.login-content h2{
+     /*h2,  12px  666666; 设置行高 居中显示*/
+    line-height: 29px;
+}
+
+/*1.4右侧 的登录*/
+.login-right{
+    width: 250px;
+    height: 29px;
+    line-height: 29px;
+}
+/*<1.4.1已经登录部分div-->*/
+.logined{
+    display: none;
+}
+.logined a{
+    color: #ff8800;
+}
+/*1.4.2未登录+我的订单*/
+.unlogin a,.myorder a{
+    color: #666666;
+}
+.unlogin span,.myorder span{
+    margin: 0 10px;
+}
+.unlogin a:hover,.myorder a:hover{
+    color: orange;
+}
+
+
+/*2.search部分*/
+.search{
+    height: 90px;
+}
+.search-content{
+    width: 1200px;
+    height: 90px;
+    margin: 0 auto;
+}
+/*2.1logo图标*/
+.logo{
+    /*//注意: a标签行内属性, 不支持宽高,margin上下*/
+    display: inline-block;
+    margin-left: 17px;
+    margin-top: 28px;
+}
+
+/*2.搜索框 div>form>input: text submit*/
+.searchbar{
+    width: 618px;
+    height: 38px;
+    border: 1px solid #37ab40;
+    margin-top: 34px;
+    margin-left: 124px;
+}
+
+/*2.1内部的input*/
+.searchbar input{
+    outline: none;
+    border: 0;
+}
+.searchtext{
+    width: 515px;
+    height: 38px;
+    line-height: 38px;
+    text-indent: 38px;
+
+    background: url(../images/sprite.png) no-repeat 12px 9px;
+}
+/*2.3搜索按钮*/
+.searchtbtn{
+    width: 103px;
+    height: 38px;
+    color: white;
+    font-size: 14px;
+    line-height: 38px;
+    background-color:#37ab40; 
+}
+
+/*2.4.我的购物车 div >a+span*/
+.mycar{
+    width: 200px;
+    height: 40px;
+    margin-top: 34px;
+    
+}
+
+.mycar a{
+    width: 158px;
+    height: 38px;
+    display: inline-block;
+    background-color: #f7f7f7;
+    border: 1px solid #dddddd;
+    font-size: 14px;
+    color: #37ab40;
+    text-indent: 37px;
+    line-height: 38px;
+    text-align: center;
+
+    background: url(../images/sprite.png) no-repeat 13px -43px;
+
+    float: left;
+}
+.mycar span{
+
+    color: white;
+    background-color: #FD8824;
+    font-size: 18px;
+    line-height: 40px;
+    height: 40px;
+    width: 40px;
+    text-align: center;
+
+    display: inline-block;
+    float: left;
+
+}
+
+
+/*3.分类的文字*/
+.category{
+    height: 40px;
+    margin-top: 27px;
+    border-bottom: 2px solid #37ab40;
+}
+.category-content{
+    width: 1200px;
+    height: 40px;
+    margin: 0 auto;
+}
+/*<!--3.1全部商品分类-->*/
+.category-content h3{
+
+    width: 200px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    font-size: 14px;
+    color: white;
+    background-color: #37ab40;
+
+    float: left;
+}
+
+.category-content ul{
+    width: 600px;
+    height: 40px;
+    margin-left: 34px;
+    float: left;
+}
+.category-content ul li{
+    height: 40px;
+    line-height: 40px;
+    float: left;
+}
+.category-content ul li a{
+    height: 40px;
+    font-size: 14px;
+    color: #666666;
+    line-height: 40px;
+    display: inline-block;
+}
+.category-content ul span{
+    margin: 0 20px;
+}
+
+.category-content ul li a:hover{
+    color: orange;
+}
+
+
+/*4.sldier*/
+.slider{
+
+    height: 270px;
+}
+.slider-content{
+    width: 1200px;
+    height: 270px;
+    margin: 0 auto;
+    background-color:  lightcoral;
+}
+
+/*4.1左侧列表*/
+.categorylist{
+
+    background-color: #ffffff;
+    width: 200px;
+    height: 270px;
+}
+
+.categorylist li{
+
+    width: 198px;
+    height: 44px;
+    border: 1px solid #eeeeee;
+    border-top: 0;
+    line-height: 44px;
+    text-align: center;
+
+    background: url(../images/sprite.png) no-repeat 35px -91px;
+}
+.categorylist li:nth-of-type(2){
+    background: url(../images/sprite.png) no-repeat 35px -141px;
+}
+.categorylist li:nth-of-type(3){
+    background: url(../images/sprite.png) no-repeat 35px -191px;
+}
+.categorylist li:nth-of-type(4){
+    background: url(../images/sprite.png) no-repeat 35px -241px;
+}
+.categorylist li:nth-of-type(5){
+    background: url(../images/sprite.png) no-repeat 35px -291px;
+}
+.categorylist li:nth-of-type(6){
+    background: url(../images/sprite.png) no-repeat 35px -339px;
+}
+
+.categorylist li a{
+    display: inline-block;
+    width: 198px;
+    height: 44px;
+    line-height: 44px;
+    font-size: 14px;
+    color: #333333;
+    background: url(../images/listarrow.jpg) no-repeat 182px 12px;
+}
+
+/*4.2中间的轮播图*/
+
+.middleslider{
+
+    width: 760px;
+    height: 270px;
+    background-color: lightgreen;
+    position: relative;
+    overflow: hidden;
+    
+}
+ /*<!--4.2.1 内部的6张图片-->*/
+.sliderimage{
+    width: 4560px;
+    height: 270px;
+    float: left;
+}
+.sliderimage li{
+    float: left;
+}
+/*<!--4.2.2左右箭头-->*/
+.leftarrow{
+    width: 19px;
+    height: 25px;
+
+    position: absolute;
+    left: 13px;
+    top:120px;
+    cursor: pointer;
+    background: url(../images/sprite.png) no-repeat -4px -400px;
+}
+.rightarrow{
+    width: 19px;
+    height: 25px;
+
+    position: absolute;
+    right: 13px;
+    top:120px;
+    cursor: pointer;
+    background: url(../images/sprite.png) no-repeat -4px -450px;
+}
+
+/*4.2.3小圆点*/
+.points{
+    width: 760px;
+    height: 11px;
+    position: absolute;
+    bottom: 10px;
+    left: 0px;
+    text-align: center;
+}
+.points li{
+    margin: 0 5px;
+    display: inline-block;
+    background-color: #9f9f9f;
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+
+}
+.points .active{
+    background-color: #cecece;
+}
+
+/*4.3ad*/
+.ad{
+    float: left;
+    width: 240px;
+    height: 270px;
+    font-size: 0;
+}
+
+
+
+
+/*5.foods商品详情*/
+.foods{
+    height: 335px;
+    margin-top: 25px;
+}
+.foods-content{
+
+    width: 1200px;
+    height: 335px;
+    margin: 0 auto;
+}
+
+.foodstitle{
+    height: 35px;
+    line-height: 35px;
+}
+
+.foodstitle h5{
+    float: left;
+    font-size: 16px;
+    color: #37ab40;
+
+    margin-right: 20px;
+
+}
+
+.foodstitle .titlelist{
+    float: left;
+}
+
+.foodstitle li{
+
+    float: left;
+    margin-right:12px;
+}
+.foodstitle li a{
+    color: #cecece;
+}
+
+.more{
+    color: #cecece;
+    float: right;
+}
+
+/*5.2 左侧的图片*/
+.foodpic{
+    width: 200px;
+    height: 300px;
+    float: left;
+}
+
+/*5.3商品详情 右侧*/
+.fooddetail{
+    float: left;
+    width: 1000px;
+    height: 300px;
+}
+
+.fooddetail li{
+
+    float: left;
+    width: 248px;
+    height: 299px;
+    border: 1px solid #ededed;
+    text-align: center;
+}
+
+.fooddetail li h5{
+
+    font-size: 14px;
+    height: 50px;
+    line-height: 50px;
+    margin-bottom: 10px;
+}
+
+.fooddetail li div{
+
+    font-size: 20px;
+    color:red;
+    font-weight: bold;
+    height: 58px;
+    line-height: 58px;
+    margin-top:5px;
+
+}/* 
+
+
+右侧详情展示:ul>li >h5+a>img+div
+			
+			ul:1000px  300 
+			li  249px 299px  border 1px  ededed
+
+			\h5  14px 居中  50px;
+
+			间距10
+
+			img 180 180
+
+			div:58px  20px  红色 居中 */

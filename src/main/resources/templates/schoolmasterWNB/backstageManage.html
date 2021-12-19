@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>后台管理</title>
+</head>
+<body>
+<!--增-->
+增
+    <form th:action="@{/insertGoods}" method="post">
+        name:<input name="name" type="text">
+        discount:<input name="discount" type="text">
+        identifier:<input name="identifier" type="text">
+        imgUri:<input name="imgUri" type="text">
+        expire:<input name="expire" type="text">
+        produceDate:<input name="produceDate" type="text">
+        Producer:<input name="producer" type="text">
+        num:<input name="num" type="text">
+        price:<input name="price" type="text">
+        <input type="submit" text="提交">
+        结果：<span th:text="${insertResult}"></span>
+    </form>
+<br>
+<!--删-->
+删
+<form th:action="@{/delGoods}">
+    id:<input name="id" type="text">
+    <input type="submit" text="提交">
+    结果：<span th:text="${delResult}"></span>
+</form>
+<br>
+<!--改-->
+改
+<form th:action="@{/updateGoods}">
+    id:<input name="id" type="text">
+    name:<input name="name" type="text">
+    discount:<input name="discount" type="text">
+    identifier:<input name="identifier" type="text">
+    imgUri:<input name="imgUri" type="text">
+    expire:<input name="expire" type="text">
+    produceDate:<input name="produceDate" type="text">
+    Producer:<input name="Producer" type="text">
+    num:<input name="num" type="text">
+    price:<input name="price" type="text">
+    <input type="submit" text="提交">
+    结果：<span th:text="${updateResult}"></span>
+</form>
+<br>
+<!--查-->
+查
+<form th:action="@{/selectGoods}">
+    name:<input name="name" type="text">
+    商品列表：<p th:text="${GoodsResult}"></p>
+    <input type="submit" text="提交">
+</form>
+</body>
+</html>

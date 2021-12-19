@@ -41,7 +41,7 @@ public class InsertUserService {
     public boolean insertCustomerPlusByUsername(Customer customer) {
         boolean judge = judgeIsUser(customer.getCustomerAccount());
         boolean judgeIsInsert = false;
-        if (judge) {
+        if (!judge) {
             judgeIsInsert = customerMapper.addCustomerPlus(customer);
         }
         return judgeIsInsert;

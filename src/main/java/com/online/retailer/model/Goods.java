@@ -7,6 +7,7 @@ import java.util.Date;
 //@Component
 public class Goods {
     //mysql商品基本信息
+    int goodsPrice;
     int goodsId;
     String goodsName;
     float goodsDiscount;
@@ -21,7 +22,8 @@ public class Goods {
     @Override
     public String toString() {
         return "Goods{" +
-                "goodsId=" + goodsId +
+                "goodsPrice="+goodsPrice+
+                ",goodsId=" + goodsId +
                 ", goodsName='" + goodsName + '\'' +
                 ", goodsDiscount=" + goodsDiscount +
                 ", goodsIdentifier='" + goodsIdentifier + '\'' +
@@ -31,6 +33,14 @@ public class Goods {
                 ", goodsFactory='" + goodsProducer + '\'' +
                 ", goodsNum=" + goodsNum +
                 '}';
+    }
+
+    public int getGoodsPrice() {
+        return goodsPrice;
+    }
+
+    public void setGoodsPrice(int goodsPrice) {
+        this.goodsPrice = goodsPrice;
     }
 
     public String getGoodsProducer() {

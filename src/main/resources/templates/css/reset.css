@@ -1,0 +1,38 @@
+/*1.将一些标签的 margin和padding去掉*/
+body,p,ul,ol,h1,h2,h3,h4,h5,h6,input,select,dd,dt{
+    margin: 0;
+    padding: 0;
+}
+/*2.去掉a标签的下划线*/
+a{
+    text-decoration: none;
+}
+/*3.列表的 前面的小图标*/
+ul,ol{
+    list-style: none;
+}
+/*4.清除浮动和塌陷的伪类*/
+.clearfix:before,.clearfix:after{
+    content: "";
+    display: table;
+}
+.clearfix:after{
+    clear:both;
+}
+.clearfix{
+    zoom:1;
+}
+
+/*5.设置浮动*/
+.lf{
+    float: left;
+}
+.rf{
+
+    float: right;
+}
+
+h1,h2,h3,h4,h5,h6{
+    font-size: 100%;
+    font-weight: normal;
+}

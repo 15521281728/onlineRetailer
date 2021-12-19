@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>商品列表页</title>
+		<script src="/js/vue.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" href="/css/main.css" />
+		<link rel="stylesheet" href="/css/reset.css" />
+	</head>
+	<body>
+		<!--1.登录部分login 欢迎来到天天生鲜!-->
+		<!--1.1 最外层的div-->
+		<div class="login">
+			<!--1.2 内层内容-->
+			<div class="login-content">
+				<!--1.3 天天生鲜 h2-->
+				<h2 class="lf">欢迎来到天天生鲜!</h2>
+				<!--1.4 登录-->
+				<div class="login-right rf">
+					<!--<1.4.1已经登录部分div-->
+					<div class="logined lf">
+						欢迎您:
+						<a href="">张三</a>
+					</div>
+					<!--<1.4.2未登录部分div-->
+					<div class="unlogin lf">
+						<a href="">登录</a>
+						<span>|</span>
+						<a href="">注册</a>
+
+					</div>
+					<!--<1.4.3 我的订单div-->
+					<div class="myorder lf">
+						<span>|</span>
+						<a href="">我的购物车</a>
+						<span>|</span>
+						<a href="">我的订单</a>
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+
+		<!--2.search部分-->
+		<!--<2.1外层的div-->
+		<div class="search">
+			<!--2.2内部的内容div-->
+			<div class="search-content">
+				<!--2.2.1-logo-->
+				<a class="logo lf" href="">
+					<img src="images/shengxianlogo.png" alt="天天生鲜的图片" title="天天生鲜logo" width="200px">
+				</a>
+				<!--2.2.2搜索框 searchbar-->
+				<div class="searchbar lf">
+					<form action="">
+						<!--2.2.2.1文本输入框-->
+						<input type="text" placeholder="搜索" class="searchtext lf">
+						<!--2.2.2.2按钮-->
+						<input type="submit" value="搜索" class="searchtbtn lf">
+
+					</form>
+
+				</div>
+				<!--2.2.3我的购物车-->
+				<div class="mycar rf">
+					<a href="">我的购物车</a>
+					<span>0</span>
+				</div>
+			</div>
+
+		</div>
+		<!--3. 全部商品 category-->
+		<div class="category">
+			<div class="category-content">
+				<!--3.1全部商品分类-->
+				<h3>全部商品分类</h3>
+				<!--3.2首页-->
+				<ul>
+					<li>
+						<a href="">首页</a>
+					</li>
+					<li>
+						<span>|</span>
+					</li>
+					<li>
+						<a href="">手机生鲜</a>
+					</li>
+					<li>
+						<span>|</span>
+					</li>
+					<li>
+						<a href="">捐赠时令果蔬</a>
+					</li>
+					<li>
+						<span>|</span>
+					</li>
+					<li>
+						<a href="">抽奖</a>
+					</li>
+					<li>
+						<span>|</span>
+					</li>
+					<li>
+						<a href="#">免费领取解暑大西瓜 </a>
+					</li>
+				</ul>
+			</div>
+
+		</div>
+		<!--4.slider轮播图-->
+		<div class="slider">
+			<div class="slider-content">
+				<!--4.1左侧分类列表-->
+				<ul class="categorylist lf">
+					<li>
+						<a href="">新鲜水果</a>
+					</li>
+					<li>
+						<a href="">营养海鲜</a>
+					</li>
+					<li>
+						<a href=""> 健康牛羊肉</a>
+					</li>
+					<li>
+						<a href="">农家小食</a>
+					</li>
+					<li>
+						<a href="">有机蔬菜</a>
+					</li>
+					<li>
+						<a href="">冬季美味</a>
+					</li>
+				</ul>
+				<!--4.2中间的轮播图-->
+				<div class="middleslider lf">
+					<!--4.2.1 内部的6张图片---时间有余就做个轮播图-->
+					<ul class="sliderimage">
+						<li>
+							<a href="">
+								<img src="images/slider02.jpg" alt="轮播图1" width="780px" height="300px">
+							</a>
+						</li>
+						<!-- <li>
+							<a href="">
+								<img src="images/slider.jpg" alt="轮播图2">
+							</a>
+						</li>
+						<li>
+							<a href="">
+								<img src="images/slider.jpg" alt="轮播图1">
+							</a>
+						</li>
+						<li>
+							<a href="">
+								<img src="images/slider.jpg" alt="轮播图1">
+							</a>
+						</li>
+						<li>
+							<a href="">
+								<img src="images/slider.jpg" alt="轮播图1">
+							</a>
+						</li>
+						<li>
+							<a href="">
+								<img src="images/slider.jpg" alt="轮播图1">
+							</a>
+						</li> -->
+					</ul>
+					<!--4.2.2左右箭头-->
+					<!-- <div class="leftarrow"></div>
+					<div class="rightarrow"></div> -->
+					<!--4.2.3小圆点-->
+					<!-- <ul class="points">
+						<li class="active"></li>
+						<li></li>
+						<li></li>
+						<li></li>
+						<li></li>
+						<li></li>
+					</ul> -->
+				</div>
+				<!--4.3ad广告部分-->
+				<div class="ad">
+
+					<a href="">
+						<img src="images/pic01.jpg" alt="广告1">
+					</a>
+					<a href="">
+						<img src="images/pic02.jpg" alt="广告2">
+					</a>
+				</div>
+			</div>
+
+		</div>
+		<!--5.foods 商品详情-->
+		<div class="foods">
+			<div class="foods-content">
+				<!--5.1title-->
+				<div class="foodstitle">
+					<h5>营养海鲜</h5>
+					<ul class="titlelist">
+						<li>
+							<span>|</span>
+						</li>
+						<li>
+							<a href="">大鲨鱼</a>
+						</li>
+						<li>
+							<a href="">小乌贼</a>
+						</li>
+						<li>
+							<a href="">小海豚</a>
+						</li>
+					</ul>
+					<a href="" class="more">查看更多></a>
+
+				</div>
+				<!--5.2左侧图片-->
+				<div class="foodpic">
+					<a href="">
+						<img src="images/fresh.jpg" alt="海鲜图">
+					</a>
+
+				</div>
+
+				<!--5.3右侧商品详情-->
+				<ul class="fooddetail">
+					<li>
+						<h5>基围虾</h5>
+						<a href="">
+							<img src="images/foods.jpg" alt="基围虾">
+						</a>
+						<div>￥ 35</div>
+					</li>
+					<li>
+						<h5>大闸蟹</h5>
+						<a href="">
+							<img src="images/dajiaxie.jpg" alt="大闸蟹" height="180px">
+						</a>
+						<div>￥ 999</div>
+					</li>
+					<li>
+						<h5>生蚝</h5>
+						<a href="">
+							<img src="images/shenghao.jpg" alt="生蚝" height="180px">
+						</a>
+						<div>￥ 350</div>
+					</li>
+					<li>
+						<h5>海参</h5>
+						<a href="">
+							<img src="images/haisheng.jpg" alt="海参" height="180px">
+						</a>
+						<div>￥ 1110</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<!--5.foods 商品详情-->
+		<div class="foods">
+			<div class="foods-content">
+				<!--5.1title-->
+				<div class="foodstitle">
+					<h5>新鲜水果 </h5>
+					<ul class="titlelist">
+						<li>
+							<span>|</span>
+						</li>
+						<li>
+							<a href="">芒果</a>
+						</li>
+						<li>
+							<a href="">加州提子</a>
+						</li>
+						<li>
+							<a href="">亚马孙牛油果</a>
+						</li>
+					</ul>
+					<a href="" class="more">查看更多></a>
+				</div>
+				<!--5.2左侧图片-->
+				<div class="foodpic">
+					<a href="">
+						<img src="images/friut.jpg" alt="水果图">
+					</a>
+				</div>
+
+				<!--5.3右侧商品详情-->
+				<ul class="fooddetail">
+					<li>
+						<h5>芒果</h5>
+						<a href="">
+							<img src="images/mangguo.png" alt="芒果" height="180px">
+						</a>
+						<div>￥ 49</div>
+					</li>
+					<li>
+						<h5>牛油果</h5>
+						<a href="">
+							<img src="images/niuyouguo.jpg" alt="牛油果" height="180px">
+						</a>
+						<div>￥ 99</div>
+					</li>
+					<li>
+						<h5>西班牙大西瓜</h5>
+						<a href="">
+							<img src="images/daxigua.jpg" alt="西班牙大西瓜" height="180px">
+						</a>
+						<div>￥ 45</div>
+					</li>
+					<li>
+						<h5>马尔代夫大菠萝</h5>
+						<a href="">
+							<img src="images/dabiluo.jpg" alt="马尔代夫大菠萝" height="180px">
+						</a>
+						<div>￥ 89</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<!--5.foods 商品详情-->
+		<div class="foods">
+			<div class="foods-content">
+				<!--5.1title-->
+				<div class="foodstitle">
+					<h5>绿色蔬菜 </h5>
+					<ul class="titlelist">
+						<li>
+							<span>|</span>
+						</li>
+						<li>
+							<a href="">西红柿
+							
+							</a>
+						</li>
+						<li>
+							<a href="">红辣椒</a>
+						</li>
+						<li>
+							<a href="">大黄瓜</a>
+						</li>
+					</ul>
+					<a href="" class="more">查看更多></a>
+
+				</div>
+				<!--5.2左侧图片-->
+				<div class="foodpic">
+					<a href="">
+						<img src="images/capate.jpg" alt="蔬菜图">
+					</a>
+				</div>
+
+				<!--5.3右侧商品详情-->
+				<ul class="fooddetail">
+					<li>
+						<h5>西红柿</h5>
+						<a href="">
+							<img src="images/xihongshi.jpg" alt="西红柿" height="180px">
+						</a>
+						<div>￥ 39</div>
+					</li>
+					<li>
+						<h5>红辣椒</h5>
+						<a href="">
+							<img src="images/honglajiao.jpg" alt="红辣椒" height="180px">
+						</a>
+						<div>￥ 48</div>
+					</li>
+					<li>
+						<h5>黄瓜</h5>
+						<a href="">
+							<img src="images/dahuanggua.jpg" alt="黄瓜" height="180px">
+						</a>
+						<div>￥ 42</div>
+					</li>
+					<li>
+						<h5>茄子</h5>
+						<a href="">
+							<img src="images/qiezi.jpg" alt="茄子" height="180px">
+						</a>
+						<div>￥ 56</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<!--5.foods 商品详情-->
+		<div class="foods">
+			<div class="foods-content">
+				<!--5.1title-->
+				<div class="foodstitle">
+					<h5>农家小食 </h5>
+					<ul class="titlelist">
+						<li>
+							<span>|</span>
+						</li>
+						<li>
+							<a href="">纯牛奶</a>
+						</li>
+						<li>
+							<a href="">新鲜土鸡蛋</a>
+						</li>
+						<li>
+							<a href="">天山牦牛肉</a>
+						</li>
+					</ul>
+					<a href="" class="more">查看更多></a>
+
+				</div>
+				<!--5.2左侧图片-->
+				<div class="foodpic">
+					<a href="">
+						<img src="images/egg.jpg" alt="鸡蛋图">
+					</a>
+				</div>
+
+				<!--5.3右侧商品详情-->
+				<ul class="fooddetail">
+					<li>
+						<h5>纯牛奶</h5>
+						<a href="">
+							<img src="images/chunniunai.jpg" alt="纯牛奶" height="180px">
+						</a>
+						<div>￥ 167</div>
+					</li>
+					<li>
+						<h5>土鸡蛋</h5>
+						<a href="">
+							<img src="images/jiadan.png" alt="土鸡蛋" height="180px">
+						</a>
+						<div>￥ 79</div>
+					</li>
+					<li>
+						<h5>牛肉</h5>
+						<a href="">
+							<img src="images/niurou.jpg" alt="牛肉" height="180px">
+						</a>
+						<div>￥ 714</div>
+					</li>
+					<li>
+						<h5>羊肉</h5>
+						<a href="">
+							<img src="images/yangrou.jpg" alt="羊肉" height="180px">
+						</a>
+						<div>￥ 610</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<script>
+		
+		
+		</script>
+	</body>
+</html>
